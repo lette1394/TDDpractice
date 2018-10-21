@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -24,17 +23,17 @@ public class Main {
     }
 
     private static int sum(String line) {
-        return sum(toInts(splitInDelemeter(line)));
+        return sum(toInts(splitInDelimiter(line)));
     }
 
     private static Integer sum(Collection<Integer> numbers) {
         return numbers.stream().reduce((a, b) -> a + b).orElse(0);
     }
 
-    private static Collection<String> splitInDelemeter(String line) {
-        String delemeter = ":";
+    private static Collection<String> splitInDelimiter(String line) {
+        String delimiter = ":";
 
-        String[] splited = line.split(delemeter);
+        String[] splited = line.split(delimiter);
 
         return Arrays.asList(splited);
     }

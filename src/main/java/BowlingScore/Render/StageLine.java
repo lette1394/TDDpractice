@@ -7,8 +7,12 @@ public class StageLine {
         return new StageLine(stage);
     }
 
+//    public String render(Integer limit, Integer blockWidth) {
+//        return Stream.iterate(1, i -> i+1).limit(limit).map()
+//    }
+
     public String render(Integer blockWidth) {
-        return String.format("|%s%s%s", this.renderLeft(blockWidth), stage, this.renderRight(blockWidth));
+        return String.format("%s%s%s", this.renderLeft(blockWidth), stage, this.renderRight(blockWidth));
     }
 
     private StageLine(Integer stage) {
@@ -16,19 +20,47 @@ public class StageLine {
     }
 
     private String renderLeft(Integer blockWidth) {
-        return getUnderScore(blockWidth);
+        if (stage < 10) {
+            return getUnderScoreOneDigit(blockWidth);
+
+        }
+        return getUnderScoreTwoDigitLeft(blockWidth);
     }
 
-    private String renderRight(Integer blockWidth) {
-        return getUnderScore(blockWidth);
-    }
-
-    private String getUnderScore(int times) {
+    private String getUnderScoreTwoDigitLeft(Integer width) {
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < times; i++) {
+        for (int i = 0; i < width + 1; i++) {
             sb.append("_");
         }
         return sb.toString();
+
+    }
+
+    private String renderRight(Integer blockWidth) {
+        if (stage < 10) {
+            return getUnderScoreOneDigit(blockWidth);
+
+        }
+        return getUnderScoreTwoDigitRight(blockWidth);
+    }
+
+    private String getUnderScoreTwoDigitRight(Integer width) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < width + 2; i++) {
+            sb.append("_");
+        }
+        return sb.toString();
+    }
+
+    private String getUnderScoreOneDigit(int width) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < width; i++) {
+            sb.append("_");
+        }
+        return sb.toString();
+
     }
 }

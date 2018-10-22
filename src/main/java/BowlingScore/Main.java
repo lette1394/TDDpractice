@@ -45,7 +45,10 @@ public class Main {
 
         Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
                 .map(StageLine::stageLine)
-                .forEach(stage -> System.out.print(stage.render(3)));
+                .forEach(stage -> {
+                    System.out.println("|");
+                    System.out.print(stage.render(3));
+                });
 //        System.out.print("|");
 //        System.out.print(String.format("%3s%s%3s", "___", "1", "___"));
 //        System.out.print("|");

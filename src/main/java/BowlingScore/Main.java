@@ -34,10 +34,9 @@ public class Main {
                 .reduce((a,b) -> a+b)
                 .map(last -> " " + last + "___________")
                 .orElse(""));
-        
+
         Environment env = Environment.env();
-        System.out.print(StageLine.render(env));
-        System.out.println();
+        System.out.println(StageLine.render(env));
     }
 
     private static void renderCurrentStageResult() {

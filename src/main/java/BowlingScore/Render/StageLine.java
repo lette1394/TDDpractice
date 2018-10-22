@@ -28,4 +28,8 @@ public class StageLine {
                 .map(last -> last + delimiter)
                 .orElse("");
     }
+
+    public static String renderTop() {
+        return " ___________________________________________________________________________________";
+    }
 }

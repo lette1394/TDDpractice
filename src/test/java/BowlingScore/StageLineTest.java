@@ -95,4 +95,14 @@ class StageLineTest {
 
         assertThat(ret).isEqualTo(expected);
     }
+
+    @Test
+    void render_top_of_stage() throws Exception {
+        String ret = StageLine.renderTop();
+
+        String expected = " ___________________________________________________________________________________";
+
+
+        assertThat(ret).isEqualTo(expected);
+    }
 }

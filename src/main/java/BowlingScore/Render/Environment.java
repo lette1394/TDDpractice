@@ -8,6 +8,10 @@ public class Environment {
     private Environment() {
     }
 
+    public static Environment env() {
+        return new Environment();
+    }
+
     public Environment setBlockWidth(Integer blockWidth) {
         this.blockWidth = blockWidth;
 

@@ -10,7 +10,6 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) {
-        Environment.setBlockWidth(3);
 
         try (final BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
             in.readLine();

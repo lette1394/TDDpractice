@@ -1,6 +1,7 @@
 package BowlingScore;
 
 import BowlingScore.Render.Environment;
+import BowlingScore.Render.MiddleLine;
 import BowlingScore.Render.TopLine;
 
 import java.io.BufferedReader;
@@ -35,55 +36,7 @@ public class Main {
     }
 
     private static void renderMiddle() {
-
-        System.out.print("|");
-        System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%s", "   |   |   |"));
-        System.out.println();
-
-        System.out.print("|");
-        System.out.print(String.format(" %s %s %s ", "9", "|", "/"));
-        System.out.print("|");
-        System.out.print(String.format("%2s %s %-2s", "X", "|", " "));
-        System.out.print("|");
-        System.out.print(String.format("%2s %s %-2s", "X", "|", " "));
-        System.out.print("|");
-        System.out.print(String.format("%2s %s %-2s", "9", "|", "8"));
-        System.out.print("|");
-        System.out.print(String.format("%2s %s %-2s", "9", "|", "-"));
-        System.out.print("|");
-        System.out.print(String.format("%2s %s %-2s", "9", "|", "8"));
-        System.out.print("|");
-        System.out.print(String.format("%2s %s %-2s", "9", "|", "8"));
-        System.out.print("|");
-        System.out.print(String.format("%2s %s %-2s", "9", "|", "8"));
-        System.out.print("|");
-        System.out.print(String.format("%2s %s %-2s", "9", "|", "8"));
-        System.out.print("|");
-        System.out.print(String.format("%2s %s %1s %s %1s ", "a", "|", "b", "|", "c"));
-        System.out.print("|");
-        System.out.println();
-
-        System.out.print("|");
-        System.out.print(String.format("%8s", "___|___|"));
-        System.out.print(String.format("%8s", "___|___|"));
-        System.out.print(String.format("%8s", "___|___|"));
-        System.out.print(String.format("%8s", "___|___|"));
-        System.out.print(String.format("%8s", "___|___|"));
-        System.out.print(String.format("%8s", "___|___|"));
-        System.out.print(String.format("%8s", "___|___|"));
-        System.out.print(String.format("%8s", "___|___|"));
-        System.out.print(String.format("%8s", "___|___|"));
-        System.out.print(String.format("%9s", "___|___|___|"));
-        System.out.println();
+        System.out.print(MiddleLine.render(10));
     }
 
     private static void renderBottom() {

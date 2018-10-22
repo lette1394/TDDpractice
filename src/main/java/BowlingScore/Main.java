@@ -1,7 +1,7 @@
 package BowlingScore;
 
 import BowlingScore.Render.Environment;
-import BowlingScore.Render.StageLine;
+import BowlingScore.Render.Stage;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,7 +11,6 @@ public class Main {
 
     public static void main(String[] args) {
         Environment.setBlockWidth(3);
-
 
         try (final BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
             in.readLine();
@@ -44,7 +43,7 @@ public class Main {
         System.out.println();
 
         Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-                .map(StageLine::stageLine)
+                .map(Stage::stage)
                 .forEach(stage -> {
                     System.out.println("|");
                     System.out.print(stage.render(3));

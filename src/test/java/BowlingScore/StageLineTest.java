@@ -3,43 +3,36 @@ package BowlingScore;
 import BowlingScore.Render.StageLine;
 import org.junit.jupiter.api.Test;
 
-import java.util.stream.Stream;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StageLineTest {
 
     @Test
-    void create_stage() throws Exception {
-        StageLine stageLine = StageLine.stageLine(7);
+    void render_9_stages() throws Exception {
         Integer blockWidth = 3;
-        String expected = "___7___";
-
-        String ret = stageLine.render(blockWidth);
+        Integer limit = 9;
+        String ret = StageLine.render(limit, blockWidth);
+        String expected = "|___1___|___2___|___3___|___4___|___5___|___6___|___7___|___8___|___9___|";
 
         assertThat(ret).isEqualTo(expected);
     }
 
     @Test
-    void creates_multiple_stages() throws Exception {
+    void render_10_stages() throws Exception {
         Integer blockWidth = 3;
-        String ret = Stream.of(1, 2, 6, 7)
-                .map(StageLine::stageLine)
-                .map(stageLine -> stageLine.render(blockWidth))
-                .reduce((a, b) -> a + b)
-                .orElse("");
-        String expected = "___1______2______6______7___";
+        Integer limit = 10;
+        String ret = StageLine.render(limit, blockWidth);
+        String expected = "|___1___|___2___|___3___|___4___|___5___|___6___|___7___|___8___|___9___|____10_____|";
 
         assertThat(ret).isEqualTo(expected);
     }
 
     @Test
-    void create_at_10_must_be_longer() throws Exception {
-        StageLine stageLine = StageLine.stageLine(10);
+    void render_more_than_10_stages() throws Exception {
         Integer blockWidth = 3;
-        String expected = "____10_____";
-
-        String ret = stageLine.render(blockWidth);
+        Integer limit = 20;
+        String ret = StageLine.render(limit, blockWidth);
+        String expected = "|___1___|___2___|___3___|___4___|___5___|___6___|___7___|___8___|___9___|____10_____|____11_____|____12_____|____13_____|____14_____|____15_____|____16_____|____17_____|____18_____|____19_____|____20_____|";
 
         assertThat(ret).isEqualTo(expected);
     }

@@ -5,6 +5,7 @@ import BowlingScore.Render.StageLine;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -27,19 +28,13 @@ public class Main {
     }
 
     private static void renderStage() {
-        System.out.print(" ");
-        System.out.print(String.format("%8s", "________"));
-        System.out.print(String.format("%8s", "________"));
-        System.out.print(String.format("%8s", "________"));
-        System.out.print(String.format("%8s", "________"));
-        System.out.print(String.format("%8s", "________"));
-        System.out.print(String.format("%8s", "________"));
-        System.out.print(String.format("%8s", "________"));
-        System.out.print(String.format("%8s", "________"));
-        System.out.print(String.format("%8s", "________"));
-        System.out.print(String.format("%9s", "___________"));
-        System.out.println();
-
+        System.out.println(Stream.iterate(0, i -> i + 1)
+                .limit(9)
+                .map(i -> String.format("%8s", "________"))
+                .reduce((a,b) -> a+b)
+                .map(last -> " " + last + "___________")
+                .orElse(""));
+        
         Environment env = Environment.env();
         System.out.print(StageLine.render(env));
         System.out.println();

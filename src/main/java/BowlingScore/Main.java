@@ -42,29 +42,6 @@ public class Main {
 
         Environment env = Environment.env();
         System.out.print(StageLine.render(env));
-
-//        System.out.print("|");
-//        System.out.print(String.format("%3s%s%3s", "___", "1", "___"));
-//        System.out.print("|");
-//        System.out.print(String.format("%3s%s%3s", "___", "2", "___"));
-//        System.out.print("|");
-//        System.out.print(String.format("%3s%s%3s", "___", "3", "___"));
-//        System.out.print("|");
-//        System.out.print(String.format("%3s%s%3s", "___", "4", "___"));
-//        System.out.print("|");
-//        System.out.print(String.format("%3s%s%3s", "___", "5", "___"));
-//        System.out.print("|");
-//        System.out.print(String.format("%3s%s%3s", "___", "6", "___"));
-//        System.out.print("|");
-//        System.out.print(String.format("%3s%s%3s", "___", "7", "___"));
-//        System.out.print("|");
-//        System.out.print(String.format("%3s%s%3s", "___", "8", "___"));
-//        System.out.print("|");
-//        System.out.print(String.format("%3s%s%3s", "___", "9", "___"));
-//        System.out.print("|");
-//        System.out.print(String.format("%4s%s%4s", "____", "10", "_____"));
-//        System.out.print("|");
-
         System.out.println();
     }
 

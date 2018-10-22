@@ -1,7 +1,7 @@
 package BowlingScore;
 
 import BowlingScore.Render.Environment;
-import BowlingScore.Render.StageLine;
+import BowlingScore.Render.TopLine;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -29,7 +29,7 @@ public class Main {
     private static void renderTop() {
         Environment env = Environment.env();
 
-        String line = StageLine.render(env);
+        String line = TopLine.render(env);
 
         System.out.println(line);
     }

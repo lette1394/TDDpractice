@@ -1,17 +1,17 @@
 package BowlingScore.Render;
 
-public class Stage {
+public class Top {
     private Integer stage;
 
-    public static Stage stage(Integer num) {
-        return new Stage(num);
+    public static Top stage(Integer num) {
+        return new Top(num);
     }
 
     public String render(Integer blockWidth) {
         return String.format("%s%s%s", this.renderLeft(blockWidth), stage, this.renderRight(blockWidth));
     }
 
-    private Stage(Integer stage) {
+    private Top(Integer stage) {
         this.stage = stage;
     }
 

@@ -21,35 +21,33 @@ public class Main {
     }
 
     private static void render() {
-        renderStage();
-        renderCurrentStageResult();
-        renderAccumulatedScore();
+        renderTop();
+        renderMiddle();
+        renderBottom();
     }
 
-    private static void renderStage() {
-//        System.out.println(Stream.iterate(0, i -> i + 1)
-//                .limit(9)
-//                .map(i -> String.format("%8s", "________"))
-//                .reduce((a,b) -> a+b)
-//                .map(last -> " " + last + "___________")
-//                .orElse(""));
-
+    private static void renderTop() {
         Environment env = Environment.env();
-        System.out.println(StageLine.render(env));
+
+        String line = StageLine.render(env);
+
+        System.out.println(line);
     }
 
-    private static void renderCurrentStageResult() {
+    private static void renderMiddle() {
+
+
         System.out.print("|");
         System.out.print(String.format("%s", "   |   |"));
         System.out.print(String.format("%s", "   |   |"));
         System.out.print(String.format("%s", "   |   |"));
-        System.out.print(String.format("%8s", "   |   |"));
-        System.out.print(String.format("%8s", "   |   |"));
-        System.out.print(String.format("%8s", "   |   |"));
-        System.out.print(String.format("%8s", "   |   |"));
-        System.out.print(String.format("%8s", "   |   |"));
-        System.out.print(String.format("%8s", "   |   |"));
-        System.out.print(String.format("%9s", "   |   |   |"));
+        System.out.print(String.format("%s", "   |   |"));
+        System.out.print(String.format("%s", "   |   |"));
+        System.out.print(String.format("%s", "   |   |"));
+        System.out.print(String.format("%s", "   |   |"));
+        System.out.print(String.format("%s", "   |   |"));
+        System.out.print(String.format("%s", "   |   |"));
+        System.out.print(String.format("%s", "   |   |   |"));
         System.out.println();
 
         System.out.print("|");
@@ -89,7 +87,7 @@ public class Main {
         System.out.println();
     }
 
-    private static void renderAccumulatedScore() {
+    private static void renderBottom() {
         System.out.print("|");
         System.out.print(String.format("%8s", "|"));
         System.out.print(String.format("%8s", "|"));

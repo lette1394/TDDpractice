@@ -8,7 +8,7 @@ import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MainMethod {
+class MainMethod {
 
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 

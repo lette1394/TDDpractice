@@ -36,7 +36,6 @@ public class Main {
 
     private static void renderMiddle() {
 
-
         System.out.print("|");
         System.out.print(String.format("%s", "   |   |"));
         System.out.print(String.format("%s", "   |   |"));

@@ -1,11 +1,10 @@
 package BowlingScore;
 
 import BowlingScore.Render.Environment;
-import BowlingScore.Render.Stage;
+import BowlingScore.Render.StageLine;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.stream.Stream;
 
 public class Main {
 
@@ -41,12 +40,9 @@ public class Main {
         System.out.print(String.format("%9s", "___________"));
         System.out.println();
 
-        Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-                .map(Stage::stage)
-                .forEach(stage -> {
-                    System.out.println("|");
-                    System.out.print(stage.render(3));
-                });
+        Environment env = Environment.env();
+        System.out.print(StageLine.render(env));
+
 //        System.out.print("|");
 //        System.out.print(String.format("%3s%s%3s", "___", "1", "___"));
 //        System.out.print("|");

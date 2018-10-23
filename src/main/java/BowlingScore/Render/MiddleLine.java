@@ -9,20 +9,16 @@ public class MiddleLine {
     public static String render(Collection<StageScore> scoreList) {
 
         return String.join("\n",
-                renderLine(Middle::renderCeiling, scoreList),
-                renderLine(Middle::renderScore, scoreList),
-                renderLine(Middle::renderFloor, scoreList));
+                _render(Middle::renderCeiling, scoreList),
+                _render(Middle::renderScore, scoreList),
+                _render(Middle::renderFloor, scoreList));
     }
 
-    private static String renderLine(Function<StageScore, String> mapper, Collection<StageScore> scoreList) {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("|");
-        scoreList.forEach(score -> {
-            sb.append(mapper.apply(score));
-            sb.append("|");
-        });
-
-        return sb.toString();
+    private static String _render(Function<StageScore, String> mapper, Collection<StageScore> scoreList) {
+        return scoreList.stream()
+                .map(mapper)
+                .reduce((a, b) -> a + "|" + b)
+                .map(last -> "|" + last + "|")
+                .orElse("");
     }
 }

@@ -4,6 +4,7 @@ public class RenderContext {
     private Integer startNumber = 1;
     private Integer blockWidth = 3;
     private Integer totalStage = 10;
+
     private String verticalDelimiter = "|";
     private String horizontalDelimiter = "_";
     private String padding = " ";
@@ -68,6 +69,4 @@ public class RenderContext {
     public String getPadding() {
         return padding;
     }
-
-
 }

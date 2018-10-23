@@ -10,12 +10,8 @@ public class TopLine {
         final Integer blockWidth = env.getBlockWidth();
         final String delimiter = env.getDelimiter();
 
-        return renderContents(totalStage, blockWidth, delimiter);
-    }
-
-    private static String renderContents(Integer limit, Integer blockWidth, String delimiter) {
         return Stream.iterate(startNumber, i -> i + 1)
-                .limit(limit)
+                .limit(totalStage)
                 .map(Top::stage)
                 .map(top -> top.renderContents(blockWidth))
                 .reduce((a, b) -> a + delimiter + b)
@@ -24,13 +20,17 @@ public class TopLine {
     }
 
     private static String renderTop(Environment env) {
+        final Integer totalStage = env.getTotalStage();
+        final Integer blockWidth = env.getBlockWidth();
+        final String delimiter = "_";
+        final String padding = " ";
 
-        return Stream.iterate(1, i -> i + 1)
-                .limit(env.getTotalStage())
+        return Stream.iterate(startNumber, i -> i + 1)
+                .limit(totalStage)
                 .map(Top::stage)
-                .map(top -> top.renderTop(env.getBlockWidth()))
-                .reduce((a, b) -> a + "_" + b)
-                .map(last -> " " + last)
+                .map(top -> top.renderTop(blockWidth))
+                .reduce((a, b) -> a + delimiter + b)
+                .map(last -> padding + last + padding)
                 .orElse("");
     }
 

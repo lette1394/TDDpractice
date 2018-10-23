@@ -15,7 +15,7 @@ class TopLineTest {
         String ret = TopLine.render(env);
 
         String expected =
-                        " _______\n" +
+                        " _______ \n" +
                         "|___1___|";
         assertThat(ret).isEqualTo(expected);
     }
@@ -27,7 +27,7 @@ class TopLineTest {
         String ret = TopLine.render(env);
 
         String expected =
-                        " _______________________________________________________________________\n" +
+                        " _______________________________________________________________________ \n" +
                         "|___1___|___2___|___3___|___4___|___5___|___6___|___7___|___8___|___9___|";
         assertThat(ret).isEqualTo(expected);
     }
@@ -39,7 +39,7 @@ class TopLineTest {
         String ret = TopLine.render(env);
 
         String expected =
-                " ___________________________________________________________________________________\n" +
+                " ___________________________________________________________________________________ \n" +
                         "|___1___|___2___|___3___|___4___|___5___|___6___|___7___|___8___|___9___|____10_____|";
         assertThat(ret).isEqualTo(expected);
     }
@@ -53,7 +53,7 @@ class TopLineTest {
 
         String ret = TopLine.render(env);
         String expected =
-                " _______________________________________\n" +
+                " _______________________________________ \n" +
                         ":___1___:___2___:___3___:___4___:___5___:";
 
         assertThat(ret).isEqualTo(expected);

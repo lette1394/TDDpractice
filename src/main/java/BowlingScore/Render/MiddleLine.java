@@ -4,6 +4,8 @@ import BowlingScore.StageScore;
 
 import java.util.Collection;
 
+import static BowlingScore.Render.Middle.*;
+
 public class MiddleLine {
     public static String render(Collection<StageScore> scoreList) {
         StringBuilder sb = new StringBuilder();
@@ -31,39 +33,5 @@ public class MiddleLine {
         });
 
         return sb.toString();
-    }
-
-    private static String renderCeiling(StageScore score) {
-        Integer stage = score.getStage();
-
-        if (stage == 10) {
-            return String.format("%s", "   |   |   ");
-        }
-
-        return String.format("%s", "   |   ");
-    }
-
-    private static String renderScore(StageScore score) {
-        Integer stage = score.getStage();
-
-        String first = score.getFirstTryScore();
-        String second = score.getSecondTryScore();
-        String third = score.getThirdTryScore();
-
-        if (stage == 10) {
-            return String.format(" %s %s %s %s %s ", first, "|", second, "|", third);
-        }
-
-        return String.format(" %s %s %s ", first, "|", second);
-    }
-
-    private static String renderFloor(StageScore score) {
-        Integer stage = score.getStage();
-
-        if (stage == 10) {
-            return String.format("%s", "___|___|___");
-        }
-
-        return String.format("%s", "___|___");
     }
 }

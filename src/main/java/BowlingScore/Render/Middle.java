@@ -6,21 +6,7 @@ public class Middle {
     private Middle() {
     }
 
-    public static Middle middle() {
-        return new Middle();
-    }
-
-    public static String render(Integer blockWidth, StageScore score) {
-        return renderCeiling(score) + renderLineBreak() +
-                renderScore(score) + renderLineBreak() +
-                renderFloor(score);
-    }
-
-    private static String renderLineBreak() {
-        return "\n";
-    }
-
-    private static String renderCeiling(StageScore score) {
+    public static String renderCeiling(StageScore score) {
         Integer stage = score.getStage();
 
         if (stage == 10) {
@@ -30,7 +16,7 @@ public class Middle {
         return String.format("%s", "   |   ");
     }
 
-    private static String renderScore(StageScore score) {
+    public static String renderScore(StageScore score) {
         Integer stage = score.getStage();
 
         String first = score.getFirstTryScore();
@@ -44,7 +30,7 @@ public class Middle {
         return String.format(" %s %s %s ", first, "|", second);
     }
 
-    private static String renderFloor(StageScore score) {
+    public static String renderFloor(StageScore score) {
         Integer stage = score.getStage();
 
         if (stage == 10) {

@@ -10,7 +10,6 @@ public class MiddleTest {
     @Test
     void render_stage_1() throws Exception {
         Middle middle = Middle.middle()
-                .setStage(2)
                 .setFirstTryScore("9")
                 .setSecondTryScore("/");
 
@@ -26,7 +25,6 @@ public class MiddleTest {
     @Test
     void render_stage_2() throws Exception {
         Middle middle = Middle.middle()
-                .setStage(2)
                 .setFirstTryScore("X")
                 .setSecondTryScore(" ");
 

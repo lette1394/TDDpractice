@@ -1,5 +1,12 @@
 package BowlingScore.Render;
 
+import BowlingScore.StageScore;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static BowlingScore.StageScore.stageScore;
+
 public class Printer {
     public static void printScoreBoard(RenderContext context) {
         printTop(context);
@@ -14,7 +21,20 @@ public class Printer {
     }
 
     private static void printMiddle(RenderContext context) {
-        String line = MiddleLine.render(context.getTotalStage());
+        List<StageScore> scoreList = Arrays.asList(
+                stageScore(1, "9", "/"),
+                stageScore(2, "X", " "),
+                stageScore(3, "X", " "),
+                stageScore(4, "9", "8"),
+                stageScore(5, "9", "-"),
+                stageScore(6, "9", "8"),
+                stageScore(7, "9", "8"),
+                stageScore(8, "9", "8"),
+                stageScore(9, "9", "8"),
+                stageScore(10, "a", "b", "c")
+                );
+
+        String line = MiddleLine.render(scoreList);
 
         System.out.println(line);
     }

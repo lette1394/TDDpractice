@@ -1,6 +1,6 @@
 package BowlingScore;
 
-import BowlingScore.Render.Environment;
+import BowlingScore.Render.RenderContext;
 import BowlingScore.Render.MiddleLine;
 import BowlingScore.Render.TopLine;
 
@@ -28,7 +28,7 @@ public class Main {
     }
 
     private static void renderTop() {
-        Environment env = Environment.env();
+        RenderContext env = RenderContext.context();
 
         String line = TopLine.render(env);
 

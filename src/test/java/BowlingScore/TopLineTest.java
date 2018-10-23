@@ -1,6 +1,6 @@
 package BowlingScore;
 
-import BowlingScore.Render.Environment;
+import BowlingScore.Render.RenderContext;
 import BowlingScore.Render.TopLine;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ class TopLineTest {
 
     @Test
     void render_1_stages() throws Exception {
-        Environment env = Environment.env()
+        RenderContext env = RenderContext.context()
                 .setTotalStage(1);
         String ret = TopLine.render(env);
 
@@ -22,7 +22,7 @@ class TopLineTest {
 
     @Test
     void render_9_stages() throws Exception {
-        Environment env = Environment.env()
+        RenderContext env = RenderContext.context()
                 .setTotalStage(9);
         String ret = TopLine.render(env);
 
@@ -34,22 +34,22 @@ class TopLineTest {
 
     @Test
     void render_10_stages() throws Exception {
-        Environment env = Environment.env()
+        RenderContext env = RenderContext.context()
                 .setTotalStage(10);
         String ret = TopLine.render(env);
 
         String expected =
-                " ___________________________________________________________________________________ \n" +
+                        " ___________________________________________________________________________________ \n" +
                         "|___1___|___2___|___3___|___4___|___5___|___6___|___7___|___8___|___9___|____10_____|";
         assertThat(ret).isEqualTo(expected);
     }
 
     @Test
     void render_with_custom_vertical_delimiter() throws Exception {
-        Environment env = Environment.env()
+        RenderContext env = RenderContext.context()
                 .setTotalStage(5)
                 .setBlockWidth(3)
-                .setDelimiter(":");
+                .setVerticalDelimiter(":");
 
         String ret = TopLine.render(env);
         String expected =

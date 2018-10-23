@@ -15,10 +15,10 @@ public class TopLine {
     public static String render(RenderContext env) {
         initialize(env);
 
-        return renderTop() + renderLineBreak() + renderContents();
+        return renderCeiling() + renderLineBreak() + renderContents();
     }
 
-    private static String renderTop() {
+    private static String renderCeiling() {
         return _render(top -> top.renderCeiling(blockWidth), horizontalDelimiter, padding);
     }
 

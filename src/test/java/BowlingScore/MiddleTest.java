@@ -16,9 +16,9 @@ public class MiddleTest {
 
         String ret = middle.render(3);
         String expected =
-                        "|   |   |\n" +
-                        "| 9 | / |\n" +
-                        "|___|___|";
+                        "   |   \n" +
+                        " 9 | / \n" +
+                        "___|___";
 
         assertThat(ret).isEqualTo(expected);
     }
@@ -32,9 +32,9 @@ public class MiddleTest {
 
         String ret = middle.render(3);
         String expected =
-                        "|   |   |\n" +
-                        "| X |   |\n" +
-                        "|___|___|";
+                        "   |   \n" +
+                        " X |   \n" +
+                        "___|___";
 
         assertThat(ret).isEqualTo(expected);
     }

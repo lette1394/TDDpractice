@@ -30,9 +30,9 @@ public class Middle {
     public String render(Integer blockWidth) {
         String ret = "";
 
-        ret += "|   |   |\n";
-        ret += String.format("| %s %s %s |\n", firstTryScore, "|", secondTryScore);
-        ret += "|___|___|";
+        ret += "   |   \n";
+        ret += String.format(" %s %s %s \n", firstTryScore, "|", secondTryScore);
+        ret += "___|___";
 
         return ret;
     }

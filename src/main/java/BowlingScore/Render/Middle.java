@@ -1,10 +1,8 @@
 package BowlingScore.Render;
 
-public class Middle {
-    private Integer stage = 0;
-    private String firstTryScore = " ";
-    private String secondTryScore = " ";
+import BowlingScore.StageScore;
 
+public class Middle {
     private Middle() {
     }
 
@@ -12,28 +10,47 @@ public class Middle {
         return new Middle();
     }
 
-    public Middle setStage(Integer stage) {
-        this.stage = stage;
-        return this;
+    public static String render(Integer blockWidth, StageScore score) {
+        return renderCeiling(score) + renderLineBreak() +
+                renderScore(score) + renderLineBreak() +
+                renderFloor(score);
     }
 
-    public Middle setFirstTryScore(String firstTryScore) {
-        this.firstTryScore = firstTryScore;
-        return this;
+    private static String renderLineBreak() {
+        return "\n";
     }
 
-    public Middle setSecondTryScore(String secondTryScore) {
-        this.secondTryScore = secondTryScore;
-        return this;
+    private static String renderCeiling(StageScore score) {
+        Integer stage = score.getStage();
+
+        if (stage == 10) {
+            return String.format("%s", "   |   |   ");
+        }
+
+        return String.format("%s", "   |   ");
     }
 
-    public String render(Integer blockWidth) {
-        String ret = "";
+    private static String renderScore(StageScore score) {
+        Integer stage = score.getStage();
 
-        ret += "   |   \n";
-        ret += String.format(" %s %s %s \n", firstTryScore, "|", secondTryScore);
-        ret += "___|___";
+        String first = score.getFirstTryScore();
+        String second = score.getSecondTryScore();
+        String third = score.getThirdTryScore();
 
-        return ret;
+        if (stage == 10) {
+            return String.format(" %s %s %s %s %s ", first, "|", second, "|", third);
+        }
+
+        return String.format(" %s %s %s ", first, "|", second);
+    }
+
+    private static String renderFloor(StageScore score) {
+        Integer stage = score.getStage();
+
+        if (stage == 10) {
+            return String.format("%s", "___|___|___");
+        }
+
+        return String.format("%s", "___|___");
     }
 }

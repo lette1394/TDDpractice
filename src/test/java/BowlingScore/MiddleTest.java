@@ -9,11 +9,10 @@ public class MiddleTest {
 
     @Test
     void render_stage_1() throws Exception {
-        Middle middle = Middle.middle()
-                .setFirstTryScore("9")
-                .setSecondTryScore("/");
+        StageScore stageScore = StageScore.stageScore(1, "9", "/");
 
-        String ret = middle.render(3);
+        String ret = Middle.render(3, stageScore);
+
         String expected =
                         "   |   \n" +
                         " 9 | / \n" +
@@ -24,11 +23,9 @@ public class MiddleTest {
 
     @Test
     void render_stage_2() throws Exception {
-        Middle middle = Middle.middle()
-                .setFirstTryScore("X")
-                .setSecondTryScore(" ");
+        StageScore stageScore = StageScore.stageScore(1, "X", " ");
 
-        String ret = middle.render(3);
+        String ret = Middle.render(3, stageScore);
         String expected =
                         "   |   \n" +
                         " X |   \n" +

@@ -1,43 +1,57 @@
 package BowlingScore.Render;
 
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class TopLine {
-    private static Integer startNumber;
-    private static Integer totalStage;
     private static Integer blockWidth;
     private static String verticalDelimiter;
     private static String horizontalDelimiter;
     private static String padding;
 
+    private static Supplier<Stream<Top>> topStream;
+
+    public static String render(RenderContext env) {
+        initialize(env);
+
+        return renderTop() + "\n" + renderContents();
+    }
+
     private static String renderContents() {
-        return render(top -> top.renderContents(blockWidth), verticalDelimiter, verticalDelimiter);
+        return _render(top -> top.renderContents(blockWidth), verticalDelimiter, verticalDelimiter);
     }
 
     private static String renderTop() {
-        return render(top -> top.renderTop(blockWidth), horizontalDelimiter, padding);
+        return _render(top -> top.renderTop(blockWidth), horizontalDelimiter, padding);
     }
 
-    private static String render(Function<Top, String> mapper, String delimiter, String padding) {
-        return Stream.iterate(startNumber, i -> i + 1)
-                .limit(totalStage)
-                .map(Top::stage)
-                .map(mapper)
+    private static String _render(Function<Top, String> renderFunction, String delimiter, String padding) {
+        return topStream.get()
+                .map(renderFunction)
                 .reduce((a, b) -> a + delimiter + b)
                 .map(last -> padding + last + padding)
                 .orElse("");
     }
 
-    public static String render(RenderContext env) {
-        startNumber = env.getStartNumber();
-        totalStage = env.getTotalStage();
-        blockWidth = env.getBlockWidth();
-        horizontalDelimiter = env.getHorizontalDelimiter();
-        verticalDelimiter = env.getVerticalDelimiter();
-        padding = env.getPadding();
-
-        return renderTop() + "\n" + renderContents();
+    private static void initialize(RenderContext context) {
+        initializeMember(context);
+        allocate(context);
     }
 
+    private static void initializeMember(RenderContext context) {
+        blockWidth = context.getBlockWidth();
+        horizontalDelimiter = context.getHorizontalDelimiter();
+        verticalDelimiter = context.getVerticalDelimiter();
+        padding = context.getPadding();
+    }
+
+    private static void allocate(RenderContext context) {
+        Integer startNumber = context.getStartNumber();
+        Integer totalStage = context.getTotalStage();
+
+        topStream = () -> Stream.iterate(startNumber, i -> i + 1)
+                .limit(totalStage)
+                .map(Top::stage);
+    }
 }

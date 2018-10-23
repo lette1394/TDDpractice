@@ -1,6 +1,7 @@
 package BowlingScore;
 
 import BowlingScore.Render.MiddleLine;
+import BowlingScore.Render.RenderContext;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -10,6 +11,8 @@ import static BowlingScore.StageScore.stageScore;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MiddleLineTest {
+    RenderContext context = RenderContext.context();
+
     @Test
     void render_middle_line() throws Exception {
         String expected =
@@ -29,7 +32,9 @@ public class MiddleLineTest {
                 stageScore(10, "a", "b", "c")
         );
 
-        String ret = MiddleLine.render(scoreList);
+        RenderContext context = RenderContext.context();
+
+        String ret = MiddleLine.render(context, scoreList);
 
         assertThat(ret).isEqualTo(expected);
     }
@@ -43,7 +48,7 @@ public class MiddleLineTest {
                         "|___|___|";
 
         List<StageScore> scoreList = Arrays.asList(stageScore(1, "9", "/"));
-        String ret = MiddleLine.render(scoreList);
+        String ret = MiddleLine.render(context, scoreList);
 
         assertThat(ret).isEqualTo(expected);
     }
@@ -54,14 +59,14 @@ public class MiddleLineTest {
                 "|   |   |   |   |   |   |\n" +
                         "| 5 | 6 | X |   | 1 | / |\n" +
                         "|___|___|___|___|___|___|";
-        
+
         List<StageScore> scoreList = Arrays.asList(
                 stageScore(1, "5", "6"),
                 stageScore(1, "X", " "),
                 stageScore(1, "1", "/")
         );
 
-        String ret = MiddleLine.render(scoreList);
+        String ret = MiddleLine.render(context, scoreList);
 
         assertThat(ret).isEqualTo(expected);
     }

@@ -34,7 +34,7 @@ public class Printer {
                 stageScore(10, "a", "b", "c")
                 );
 
-        String line = MiddleLine.render(scoreList);
+        String line = MiddleLine.render(context, scoreList);
 
         System.out.println(line);
     }

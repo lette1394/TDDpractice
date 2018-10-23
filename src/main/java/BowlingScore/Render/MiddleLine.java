@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MiddleLine {
-    public static String render(int limit) {
+    public static String render(Integer limit) {
         StringBuilder sb = new StringBuilder();
 
         sb.append("|");

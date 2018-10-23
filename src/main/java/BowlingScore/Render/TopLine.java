@@ -15,15 +15,19 @@ public class TopLine {
     public static String render(RenderContext env) {
         initialize(env);
 
-        return renderTop() + "\n" + renderContents();
+        return renderTop() + renderLineBreak() + renderContents();
+    }
+
+    private static String renderTop() {
+        return _render(top -> top.renderCeiling(blockWidth), horizontalDelimiter, padding);
     }
 
     private static String renderContents() {
         return _render(top -> top.renderContents(blockWidth), verticalDelimiter, verticalDelimiter);
     }
 
-    private static String renderTop() {
-        return _render(top -> top.renderTop(blockWidth), horizontalDelimiter, padding);
+    private static String renderLineBreak() {
+        return "\n";
     }
 
     private static String _render(Function<Top, String> renderFunction, String delimiter, String padding) {
@@ -52,6 +56,6 @@ public class TopLine {
 
         topStream = () -> Stream.iterate(startNumber, i -> i + 1)
                 .limit(totalStage)
-                .map(Top::stage);
+                .map(Top::top);
     }
 }

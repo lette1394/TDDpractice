@@ -9,7 +9,7 @@ public class MiddleLineTest {
     @Test
     void render_middle_line() throws Exception {
         String expected =
-                "|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n" +
+                        "|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n" +
                         "| 9 | / | X |   | X |   | 9 | 8 | 9 | - | 9 | 8 | 9 | 8 | 9 | 8 | 9 | 8 | a | b | c |\n" +
                         "|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|";
 
@@ -21,7 +21,7 @@ public class MiddleLineTest {
     @Test
     void render_middle_line_in_5() throws Exception {
         String expected =
-                "|   |   |   |   |   |   |   |   |   |   |   |\n" +
+                        "|   |   |   |   |   |   |   |   |   |   |   |\n" +
                         "| 9 | / | X |   | X |   | 9 | 8 | a | b | c |\n" +
                         "|___|___|___|___|___|___|___|___|___|___|___|";
 

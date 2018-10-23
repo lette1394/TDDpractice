@@ -14,7 +14,9 @@ public class Printer {
     }
 
     private static void printMiddle(RenderContext context) {
-        System.out.println(MiddleLine.render(10));
+        String line = MiddleLine.render(context.getTotalStage());
+
+        System.out.println(line);
     }
 
     private static void printBottom(RenderContext context) {

@@ -7,11 +7,11 @@ public class Top {
         this.stage = stage;
     }
 
-    public static Top stage(Integer num) {
+    public static Top top(Integer num) {
         return new Top(num);
     }
 
-    public String renderTop(Integer blockWidth) {
+    public String renderCeiling(Integer blockWidth) {
         if (stage < 10) {
             return String.format("%s", "_______");
 

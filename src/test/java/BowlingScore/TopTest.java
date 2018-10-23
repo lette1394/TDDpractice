@@ -11,7 +11,7 @@ class TopTest {
 
     @Test
     void create_stage() throws Exception {
-        Top topLine = Top.stage(7);
+        Top topLine = Top.top(7);
         Integer blockWidth = 3;
         String expected = "___7___";
 
@@ -24,7 +24,7 @@ class TopTest {
     void creates_multiple_stages() throws Exception {
         Integer blockWidth = 3;
         String ret = Stream.of(1, 2, 6, 7)
-                .map(Top::stage)
+                .map(Top::top)
                 .map(topLine -> topLine.renderContents(blockWidth))
                 .reduce((a, b) -> a + b)
                 .orElse("");
@@ -35,7 +35,7 @@ class TopTest {
 
     @Test
     void create_at_10_must_be_longer() throws Exception {
-        Top topLine = Top.stage(10);
+        Top topLine = Top.top(10);
         Integer blockWidth = 3;
         String expected = "____10_____";
 

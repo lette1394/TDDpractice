@@ -9,7 +9,6 @@ import static BowlingScore.Render.Middle.*;
 
 public class MiddleLine {
     public static String render(RenderContext context, Collection<StageScore> scoreList) {
-
         return String.join("\n",
                 _render(score -> renderCeiling(context, score), scoreList),
                 _render(score -> renderScore(context, score), scoreList),

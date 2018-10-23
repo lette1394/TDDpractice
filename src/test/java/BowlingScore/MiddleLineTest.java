@@ -11,12 +11,12 @@ import static BowlingScore.StageScore.stageScore;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MiddleLineTest {
-    RenderContext context = RenderContext.context();
+    private RenderContext context = RenderContext.context();
 
     @Test
     void render_middle_line() throws Exception {
         String expected =
-                "|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n" +
+                        "|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n" +
                         "| 9 | / | X |   | X |   | 9 | 8 | 9 | - | 9 | 8 | 9 | 8 | 9 | 8 | 9 | 8 | a | b | c |\n" +
                         "|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|";
         List<StageScore> scoreList = Arrays.asList(
@@ -56,7 +56,7 @@ public class MiddleLineTest {
     @Test
     void render_middle_line_in_3() throws Exception {
         String expected =
-                "|   |   |   |   |   |   |\n" +
+                        "|   |   |   |   |   |   |\n" +
                         "| 5 | 6 | X |   | 1 | / |\n" +
                         "|___|___|___|___|___|___|";
 

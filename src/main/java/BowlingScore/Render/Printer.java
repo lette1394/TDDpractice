@@ -1,25 +1,23 @@
 package BowlingScore.Render;
 
-public class Render {
-    public static void render(RenderContext context) {
-        renderTop();
-        renderMiddle();
-        renderBottom();
+public class Printer {
+    public static void printScoreBoard(RenderContext context) {
+        printTop(context);
+        printMiddle(context);
+        printBottom(context);
     }
 
-    private static void renderTop() {
-        RenderContext env = RenderContext.context();
-
-        String line = TopLine.render(env);
+    private static void printTop(RenderContext context) {
+        String line = TopLine.render(context);
 
         System.out.println(line);
     }
 
-    private static void renderMiddle() {
+    private static void printMiddle(RenderContext context) {
         System.out.println(MiddleLine.render(10));
     }
 
-    private static void renderBottom() {
+    private static void printBottom(RenderContext context) {
         System.out.print("|");
         System.out.print(String.format("%8s", "|"));
         System.out.print(String.format("%8s", "|"));

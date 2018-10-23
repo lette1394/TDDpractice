@@ -1,6 +1,6 @@
 package BowlingScore;
 
-import BowlingScore.Render.Render;
+import BowlingScore.Render.Printer;
 import BowlingScore.Render.RenderContext;
 
 import java.io.BufferedReader;
@@ -14,7 +14,7 @@ public class Main {
 
             RenderContext context = RenderContext.context();
 
-            Render.render(context);
+            Printer.printScoreBoard(context);
 
         } catch (Exception e) {
             System.err.println(e.toString());

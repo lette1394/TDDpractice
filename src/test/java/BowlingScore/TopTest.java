@@ -15,7 +15,7 @@ class TopTest {
         Integer blockWidth = 3;
         String expected = "___7___";
 
-        String ret = topLine.render(blockWidth);
+        String ret = topLine.renderContents(blockWidth);
 
         assertThat(ret).isEqualTo(expected);
     }
@@ -25,7 +25,7 @@ class TopTest {
         Integer blockWidth = 3;
         String ret = Stream.of(1, 2, 6, 7)
                 .map(Top::stage)
-                .map(topLine -> topLine.render(blockWidth))
+                .map(topLine -> topLine.renderContents(blockWidth))
                 .reduce((a, b) -> a + b)
                 .orElse("");
         String expected = "___1______2______6______7___";
@@ -39,7 +39,7 @@ class TopTest {
         Integer blockWidth = 3;
         String expected = "____10_____";
 
-        String ret = topLine.render(blockWidth);
+        String ret = topLine.renderContents(blockWidth);
 
         assertThat(ret).isEqualTo(expected);
     }

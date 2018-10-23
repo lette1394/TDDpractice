@@ -31,7 +31,6 @@ public class MiddleLine {
             sb.append(String.format("%s", "___|___|"));
         }
         sb.append(String.format("%s", "___|___|___|"));
-        sb.append("\n");
 
         return sb.toString();
     }

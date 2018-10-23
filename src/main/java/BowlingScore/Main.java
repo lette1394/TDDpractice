@@ -36,7 +36,7 @@ public class Main {
     }
 
     private static void renderMiddle() {
-        System.out.print(MiddleLine.render(10));
+        System.out.println(MiddleLine.render(10));
     }
 
     private static void renderBottom() {

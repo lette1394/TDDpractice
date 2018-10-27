@@ -3,7 +3,7 @@ package BowlingScore.Render;
 class Bottom implements Renderable {
     private Bottom() {}
 
-    public static Bottom create() {
+    static Bottom create() {
         return new Bottom();
     }
 

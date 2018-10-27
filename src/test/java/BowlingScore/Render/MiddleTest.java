@@ -11,8 +11,9 @@ public class MiddleTest {
     void render_ceiling_width5() throws Exception {
         StageScore stageScore = StageScore.stageScore(1, "9", "/");
         RenderContext context = RenderContext.context().setBlockWidth(5);
+        Middle middle = Middle.middle(context);
 
-        String ret = Middle.renderCeiling(context, stageScore);
+        String ret = middle.renderCeiling(stageScore);
 
         String expected = "     |     ";
         assertThat(ret).isEqualTo(expected);
@@ -22,8 +23,9 @@ public class MiddleTest {
     void render_score_width5() throws Exception {
         StageScore stageScore = StageScore.stageScore(1, "X", " ");
         RenderContext context = RenderContext.context().setBlockWidth(5);
+        Middle middle = Middle.middle(context);
 
-        String ret = Middle.renderScore(context, stageScore);
+        String ret = middle.renderScore(stageScore);
         String expected = "  X  |     ";
 
         assertThat(ret).isEqualTo(expected);
@@ -33,8 +35,9 @@ public class MiddleTest {
     void render_score_width6() throws Exception {
         StageScore stageScore = StageScore.stageScore(1, "X", " ");
         RenderContext context = RenderContext.context().setBlockWidth(6);
+        Middle middle = Middle.middle(context);
 
-        String ret = Middle.renderScore(context, stageScore);
+        String ret = middle.renderScore(stageScore);
         String expected = "   X  |      ";
 
         assertThat(ret).isEqualTo(expected);
@@ -44,8 +47,9 @@ public class MiddleTest {
     void render_floor_width5() throws Exception {
         StageScore stageScore = StageScore.stageScore(1, "6", "3");
         RenderContext context = RenderContext.context().setBlockWidth(5);
+        Middle middle = Middle.middle(context);
 
-        String ret = Middle.renderFloor(context, stageScore);
+        String ret = middle.renderFloor(stageScore);
         String expected = "_____|_____";
 
         assertThat(ret).isEqualTo(expected);

@@ -5,14 +5,14 @@ import BowlingScore.StageScore;
 import java.util.Collection;
 import java.util.function.Function;
 
-import static BowlingScore.Render.Middle.*;
-
 public class MiddleLine {
     public static String render(RenderContext context, Collection<StageScore> scoreList) {
+        Middle middle = Middle.middle(context);
+
         return String.join("\n",
-                _render(score -> renderCeiling(context, score), scoreList),
-                _render(score -> renderScore(context, score), scoreList),
-                _render(score -> renderFloor(context, score), scoreList));
+                _render(middle::renderCeiling, scoreList),
+                _render(middle::renderScore, scoreList),
+                _render(middle::renderFloor, scoreList));
     }
 
     private static String _render(Function<StageScore, String> mapper, Collection<StageScore> scoreList) {

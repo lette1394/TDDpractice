@@ -1,16 +1,27 @@
 package BowlingScore.Render;
 
-import BowlingScore.Render.RenderContext;
 import BowlingScore.StageScore;
 
 import static BowlingScore.Render.Util.generateStringXTimes;
 import static BowlingScore.Render.Util.insertStringTo;
 
-public class Middle {
-    private Middle() {
+final class Middle {
+    RenderContext context;
+
+    private Middle(RenderContext context) {
+        this.context = context;
     }
 
-    public static String renderCeiling(RenderContext context, StageScore score) {
+    static Middle middle() {
+        return middle(RenderContext.context());
+    }
+
+    static Middle middle(RenderContext context) {
+        return new Middle(context);
+    }
+
+
+    String renderCeiling(StageScore score) {
         Integer stage = score.getStage();
         Integer blockWidth = context.getBlockWidth();
 
@@ -26,7 +37,7 @@ public class Middle {
                 generateStringXTimes(" ", blockWidth));
     }
 
-    public static String renderScore(RenderContext context, StageScore score) {
+    String renderScore(StageScore score) {
         Integer stage = score.getStage();
         Integer blockWidth = context.getBlockWidth();
 
@@ -48,7 +59,7 @@ public class Middle {
                 insertStringTo(basis, second));
     }
 
-    public static String renderFloor(RenderContext context, StageScore score) {
+    String renderFloor(StageScore score) {
         Integer stage = score.getStage();
         Integer blockWidth = context.getBlockWidth();
 

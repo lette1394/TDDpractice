@@ -26,6 +26,4 @@ public class Top {
 
         return String.format("%s%s%s", "____", stage, "_____");
     }
-
-
 }

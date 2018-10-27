@@ -1,7 +1,6 @@
-package BowlingScore;
+package BowlingScore.Render;
 
-import BowlingScore.Render.Middle;
-import BowlingScore.Render.RenderContext;
+import BowlingScore.StageScore;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,4 +1,4 @@
-package BowlingScore;
+package BowlingScore.Render;
 
 import BowlingScore.Render.Util;
 import org.junit.jupiter.api.Test;

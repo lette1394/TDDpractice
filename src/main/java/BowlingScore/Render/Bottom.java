@@ -1,15 +1,24 @@
 package BowlingScore.Render;
 
-public class Bottom {
-    public static String renderCeiling(RenderContext context) {
+class Bottom implements Renderable {
+    private Bottom() {}
+
+    public static Bottom create() {
+        return new Bottom();
+    }
+
+    @Override
+    public String renderCeiling(RenderContext context) {
         return "       ";
     }
 
-    public static String renderMiddle(RenderContext context) {
+    @Override
+    public String renderContents(RenderContext context) {
         return String.format("%3s%s%3s", "", "1", "");
     }
 
-    public static String renderBottom(RenderContext context) {
+    @Override
+    public String renderFloor(RenderContext context) {
         return renderCeiling(context);
     }
 }

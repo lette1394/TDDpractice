@@ -1,6 +1,5 @@
-package BowlingScore;
+package BowlingScore.Render;
 
-import BowlingScore.Render.Top;
 import org.junit.jupiter.api.Test;
 
 import java.util.stream.Stream;

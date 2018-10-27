@@ -1,7 +1,5 @@
-package BowlingScore;
+package BowlingScore.Render;
 
-import BowlingScore.Render.RenderContext;
-import BowlingScore.Render.TopLine;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,5 +1,6 @@
 package BowlingScore.Render;
 
+import BowlingScore.Render.RenderContext;
 import BowlingScore.StageScore;
 
 import static BowlingScore.Render.Util.generateStringXTimes;

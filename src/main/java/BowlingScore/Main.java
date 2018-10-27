@@ -2,6 +2,7 @@ package BowlingScore;
 
 import BowlingScore.Render.Printer;
 import BowlingScore.Render.RenderContext;
+import BowlingScore.Render.RenderContext.RenderContextMaker;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,9 +13,9 @@ public class Main {
         try (final BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
             in.readLine();
 
-            RenderContext context = RenderContext.context();
+            RenderContextMaker maker = RenderContext.getMaker();
 
-            Printer.printScoreBoard(context);
+            Printer.printScoreBoard(maker.make(10));
 
         } catch (Exception e) {
             System.err.println(e.toString());

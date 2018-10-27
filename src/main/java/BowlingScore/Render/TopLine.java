@@ -1,29 +1,30 @@
 package BowlingScore.Render;
 
+import BowlingScore.Render.RenderContext.RenderContextMaker;
+
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class TopLine {
-    private static Integer blockWidth;
     private static String verticalDelimiter;
     private static String horizontalDelimiter;
     private static String padding;
 
     private static Supplier<Stream<Top>> topStream;
 
-    public static String render(RenderContext env) {
-        initialize(env);
+    public static String render(RenderContext context) {
+        initialize(context);
 
         return renderCeiling() + renderLineBreak() + renderContents();
     }
 
     private static String renderCeiling() {
-        return _render(top -> top.renderCeiling(blockWidth), horizontalDelimiter, padding);
+        return _render(Top::renderCeiling, horizontalDelimiter, padding);
     }
 
     private static String renderContents() {
-        return _render(top -> top.renderContents(blockWidth), verticalDelimiter, verticalDelimiter);
+        return _render(Top::renderContents, verticalDelimiter, verticalDelimiter);
     }
 
     private static String renderLineBreak() {
@@ -44,7 +45,6 @@ public class TopLine {
     }
 
     private static void initializeMember(RenderContext context) {
-        blockWidth = context.getBlockWidth();
         horizontalDelimiter = context.getHorizontalDelimiter();
         verticalDelimiter = context.getVerticalDelimiter();
         padding = context.getPadding();
@@ -52,10 +52,13 @@ public class TopLine {
 
     private static void allocate(RenderContext context) {
         Integer startNumber = context.getStartNumber();
-        Integer totalStage = context.getTotalStage();
+        Integer totalStage = context.getStage();
+        RenderContextMaker maker = RenderContext.getMaker();
+        maker.setBlockWidth(3);
 
         topStream = () -> Stream.iterate(startNumber, i -> i + 1)
                 .limit(totalStage)
+                .map(maker::make)
                 .map(Top::top);
     }
 }

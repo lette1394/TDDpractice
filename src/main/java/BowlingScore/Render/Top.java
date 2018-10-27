@@ -1,29 +1,29 @@
 package BowlingScore.Render;
 
-public class Top {
-    private Integer stage;
+class Top {
+    private RenderContext context;
 
-    private Top(Integer stage) {
-        this.stage = stage;
+    private Top(RenderContext context) {
+        this.context = context;
     }
 
-    public static Top top(Integer num) {
-        return new Top(num);
+    static Top top(RenderContext context) {
+        return new Top(context);
     }
 
-    public String renderCeiling(Integer blockWidth) {
-        if (stage < 10) {
+    String renderCeiling() {
+        if (context.getStage() < 10) {
             return String.format("%s", "_______");
 
         }
         return String.format("%s", "___________");
     }
 
-    public String renderContents(Integer blockWidth) {
-        if (stage < 10) {
-            return String.format("%s%s%s", "___", stage, "___");
+    String renderContents() {
+        if (context.getStage() < 10) {
+            return String.format("%s%s%s", "___", context.getStage(), "___");
         }
 
-        return String.format("%s%s%s", "____", stage, "_____");
+        return String.format("%s%s%s", "____", context.getStage(), "_____");
     }
 }

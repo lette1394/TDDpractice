@@ -1,9 +1,49 @@
 package BowlingScore.Render;
 
 public class RenderContext {
+    public static class RenderContextMaker {
+        private RenderContext context;
+
+        private RenderContextMaker() {
+            context = new RenderContext();
+        }
+
+        public RenderContextMaker setStartNumber(Integer startNumber) {
+            context.setStartNumber(startNumber);
+            return this;
+        }
+
+        public RenderContextMaker setBlockWidth(Integer blockWidth) {
+            context.setBlockWidth(blockWidth);
+            return this;
+        }
+
+        public RenderContextMaker setVerticalDelimiter(String verticalDelimiter) {
+            context.setVerticalDelimiter(verticalDelimiter);
+            return this;
+        }
+
+        public RenderContextMaker setHorizontalDelimiter(String horizontalDelimiter) {
+            context.setHorizontalDelimiter(horizontalDelimiter);
+            return this;
+        }
+
+        public RenderContextMaker setPadding(String padding) {
+            context.setPadding(padding);
+            return this;
+        }
+
+        public RenderContext make(Integer stage) {
+            RenderContext target = copy(context);
+            target.setStage(stage);
+
+            return target;
+        }
+    }
+
     private Integer startNumber = 1;
     private Integer blockWidth = 3;
-    private Integer totalStage = 10;
+    private Integer stage;
 
     private String verticalDelimiter = "|";
     private String horizontalDelimiter = "_";
@@ -12,61 +52,68 @@ public class RenderContext {
     private RenderContext() {
     }
 
-    public static RenderContext context() {
-        return new RenderContext();
+    private static RenderContext copy(RenderContext context) {
+        RenderContext target = new RenderContext();
+
+        target.setPadding(context.getPadding());
+        target.setStartNumber(context.getStartNumber());
+        target.setHorizontalDelimiter(context.getHorizontalDelimiter());
+        target.setVerticalDelimiter(context.getVerticalDelimiter());
+        target.setBlockWidth(context.getBlockWidth());
+        target.setStage(context.getStage());
+
+        return target;
     }
 
-    public Integer getStartNumber() {
+    public static RenderContextMaker getMaker() {
+        return new RenderContextMaker();
+    }
+
+    Integer getStartNumber() {
         return startNumber;
     }
 
-    public RenderContext setStartNumber(Integer startNumber) {
-        this.startNumber = startNumber;
-        return this;
-    }
-
-    public RenderContext setBlockWidth(Integer blockWidth) {
-        this.blockWidth = blockWidth;
-        return this;
-    }
-
-    public RenderContext setTotalStage(Integer totalStage) {
-        this.totalStage = totalStage;
-        return this;
-    }
-
-    public RenderContext setVerticalDelimiter(String verticalDelimiter) {
-        this.verticalDelimiter = verticalDelimiter;
-        return this;
-    }
-
-    public RenderContext setHorizontalDelimiter(String horizontalDelimiter) {
-        this.horizontalDelimiter = horizontalDelimiter;
-        return this;
-    }
-
-    public RenderContext setPadding(String padding) {
-        this.padding = padding;
-        return this;
-    }
-
-    public Integer getBlockWidth() {
+    Integer getBlockWidth() {
         return blockWidth;
     }
 
-    public Integer getTotalStage() {
-        return totalStage;
+    Integer getStage() {
+        return stage;
     }
 
-    public String getVerticalDelimiter() {
+    String getVerticalDelimiter() {
         return verticalDelimiter;
     }
 
-    public String getHorizontalDelimiter() {
+    String getHorizontalDelimiter() {
         return horizontalDelimiter;
     }
 
-    public String getPadding() {
+    String getPadding() {
         return padding;
+    }
+
+    private void setStartNumber(Integer startNumber) {
+        this.startNumber = startNumber;
+    }
+
+    private void setBlockWidth(Integer blockWidth) {
+        this.blockWidth = blockWidth;
+    }
+
+    private void setStage(Integer stage) {
+        this.stage = stage;
+    }
+
+    private void setVerticalDelimiter(String verticalDelimiter) {
+        this.verticalDelimiter = verticalDelimiter;
+    }
+
+    private void setHorizontalDelimiter(String horizontalDelimiter) {
+        this.horizontalDelimiter = horizontalDelimiter;
+    }
+
+    private void setPadding(String padding) {
+        this.padding = padding;
     }
 }

@@ -7,4 +7,3 @@ interface Renderable {
 
     String renderFloor(RenderContext context);
 }
- 

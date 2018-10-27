@@ -8,9 +8,12 @@ class TopLineTest {
 
     @Test
     void render_1_stages() throws Exception {
-        RenderContext env = RenderContext.context()
-                .setTotalStage(1);
-        String ret = TopLine.render(env);
+        RenderContext context = RenderContext
+                .getMaker()
+                .setBlockWidth(3)
+                .make(1);
+
+        String ret = TopLine.render(context);
 
         String expected =
                         " _______ \n" +
@@ -20,9 +23,12 @@ class TopLineTest {
 
     @Test
     void render_9_stages() throws Exception {
-        RenderContext env = RenderContext.context()
-                .setTotalStage(9);
-        String ret = TopLine.render(env);
+        RenderContext context = RenderContext
+                .getMaker()
+                .setBlockWidth(5)
+                .make(9);
+
+        String ret = TopLine.render(context);
 
         String expected =
                         " _______________________________________________________________________ \n" +
@@ -32,9 +38,12 @@ class TopLineTest {
 
     @Test
     void render_10_stages() throws Exception {
-        RenderContext env = RenderContext.context()
-                .setTotalStage(10);
-        String ret = TopLine.render(env);
+        RenderContext context = RenderContext
+                .getMaker()
+                .setBlockWidth(5)
+                .make(10);
+
+        String ret = TopLine.render(context);
 
         String expected =
                         " ___________________________________________________________________________________ \n" +
@@ -44,12 +53,13 @@ class TopLineTest {
 
     @Test
     void render_with_custom_vertical_delimiter() throws Exception {
-        RenderContext env = RenderContext.context()
-                .setTotalStage(5)
+        RenderContext context = RenderContext
+                .getMaker()
                 .setBlockWidth(3)
-                .setVerticalDelimiter(":");
+                .setVerticalDelimiter(":")
+                .make(5);
 
-        String ret = TopLine.render(env);
+        String ret = TopLine.render(context);
         String expected =
                 " _______________________________________ \n" +
                         ":___1___:___2___:___3___:___4___:___5___:";

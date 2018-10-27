@@ -1,5 +1,6 @@
 package BowlingScore.Render;
 
+import BowlingScore.Render.RenderContext.RenderContextMaker;
 import BowlingScore.StageScore;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,10 @@ public class MiddleTest {
     @Test
     void render_ceiling_width5() throws Exception {
         StageScore stageScore = StageScore.stageScore(1, "9", "/");
-        RenderContext context = RenderContext.context().setBlockWidth(5);
+        RenderContextMaker maker = RenderContext.getMaker();
+        maker.setBlockWidth(5);
+        RenderContext context = maker.make(3);
+
         Middle middle = Middle.middle(context);
 
         String ret = middle.renderCeiling(stageScore);
@@ -22,7 +26,11 @@ public class MiddleTest {
     @Test
     void render_score_width5() throws Exception {
         StageScore stageScore = StageScore.stageScore(1, "X", " ");
-        RenderContext context = RenderContext.context().setBlockWidth(5);
+        RenderContext context = RenderContext
+                .getMaker()
+                .setBlockWidth(5)
+                .make(3);
+
         Middle middle = Middle.middle(context);
 
         String ret = middle.renderScore(stageScore);
@@ -34,7 +42,10 @@ public class MiddleTest {
     @Test
     void render_score_width6() throws Exception {
         StageScore stageScore = StageScore.stageScore(1, "X", " ");
-        RenderContext context = RenderContext.context().setBlockWidth(6);
+        RenderContext context = RenderContext
+                .getMaker()
+                .setBlockWidth(6)
+                .make(3);
         Middle middle = Middle.middle(context);
 
         String ret = middle.renderScore(stageScore);
@@ -46,7 +57,10 @@ public class MiddleTest {
     @Test
     void render_floor_width5() throws Exception {
         StageScore stageScore = StageScore.stageScore(1, "6", "3");
-        RenderContext context = RenderContext.context().setBlockWidth(5);
+        RenderContext context = RenderContext
+                .getMaker()
+                .setBlockWidth(5)
+                .make(3);
         Middle middle = Middle.middle(context);
 
         String ret = middle.renderFloor(stageScore);

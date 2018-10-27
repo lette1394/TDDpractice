@@ -12,14 +12,9 @@ final class Middle {
         this.context = context;
     }
 
-    static Middle middle() {
-        return middle(RenderContext.context());
-    }
-
     static Middle middle(RenderContext context) {
         return new Middle(context);
     }
-
 
     String renderCeiling(StageScore score) {
         Integer stage = score.getStage();

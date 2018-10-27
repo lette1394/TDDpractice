@@ -1,5 +1,6 @@
 package BowlingScore.Render;
 
+import BowlingScore.Render.RenderContext.RenderContextMaker;
 import BowlingScore.StageScore;
 import org.junit.jupiter.api.Test;
 
@@ -10,8 +11,6 @@ import static BowlingScore.StageScore.stageScore;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MiddleLineTest {
-    private RenderContext context = RenderContext.context();
-
     @Test
     void render_middle_line() throws Exception {
         String expected =
@@ -30,8 +29,9 @@ public class MiddleLineTest {
                 stageScore(9, "9", "8"),
                 stageScore(10, "a", "b", "c")
         );
-
-        RenderContext context = RenderContext.context();
+        RenderContextMaker maker = RenderContext.getMaker();
+        maker.setBlockWidth(3);
+        RenderContext context = maker.make(3);
 
         String ret = MiddleLine.render(context, scoreList);
 
@@ -47,6 +47,10 @@ public class MiddleLineTest {
                         "|___|___|";
 
         List<StageScore> scoreList = Arrays.asList(stageScore(1, "9", "/"));
+        RenderContextMaker maker = RenderContext.getMaker();
+        maker.setBlockWidth(3);
+        RenderContext context = maker.make(3);
+
         String ret = MiddleLine.render(context, scoreList);
 
         assertThat(ret).isEqualTo(expected);
@@ -64,6 +68,10 @@ public class MiddleLineTest {
                 stageScore(1, "X", " "),
                 stageScore(1, "1", "/")
         );
+        RenderContextMaker maker = RenderContext.getMaker();
+        maker.setBlockWidth(3);
+        RenderContext context = maker.make(3);
+
 
         String ret = MiddleLine.render(context, scoreList);
 

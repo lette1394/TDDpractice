@@ -17,7 +17,7 @@ public class Printer {
     private static void printTop(RenderContext context) {
         String line = TopLine.render(context);
 
-        System.out.println(line);
+        print(line);
     }
 
     private static void printMiddle(RenderContext context) {
@@ -35,7 +35,7 @@ public class Printer {
                 );
 
         String line = MiddleLine.render(context, scoreList);
-        System.out.println(line);
+        print(line);
     }
 
     private static void printBottom(RenderContext context) {
@@ -89,5 +89,9 @@ public class Printer {
         System.out.print(String.format("%8s", "_______|"));
         System.out.print(String.format("%9s", "___________|"));
         System.out.println();
+    }
+
+    private static void print(String str) {
+        System.out.println(str);
     }
 }

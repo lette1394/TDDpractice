@@ -35,11 +35,12 @@ public class Printer {
                 );
 
         String line = MiddleLine.render(context, scoreList);
-
         System.out.println(line);
     }
 
     private static void printBottom(RenderContext context) {
+
+
         System.out.print("|");
         System.out.print(String.format("%8s", "|"));
         System.out.print(String.format("%8s", "|"));

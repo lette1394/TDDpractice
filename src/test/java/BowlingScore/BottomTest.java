@@ -17,4 +17,14 @@ public class BottomTest {
 
         assertThat(ret).isEqualTo(expected);
     }
+
+    @Test
+    void render_middle() throws Exception {
+        String expected = "   1   ";
+        RenderContext context = context().setBlockWidth(3);
+
+        String ret = Bottom.renderBottom(context);
+
+        assertThat(ret).isEqualTo(expected);
+    }
 }

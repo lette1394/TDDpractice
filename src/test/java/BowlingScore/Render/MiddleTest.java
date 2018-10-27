@@ -15,9 +15,11 @@ public class MiddleTest {
         maker.setBlockWidth(5);
         RenderContext context = maker.make(3);
 
-        Middle middle = Middle.middle(context);
+        Middle middle = Middle.middle()
+                .setRenderContext(context)
+                .setStageScore(stageScore);
 
-        String ret = middle.renderCeiling(stageScore);
+        String ret = middle.renderCeiling();
 
         String expected = "     |     ";
         assertThat(ret).isEqualTo(expected);
@@ -31,9 +33,11 @@ public class MiddleTest {
                 .setBlockWidth(5)
                 .make(3);
 
-        Middle middle = Middle.middle(context);
+        Middle middle = Middle.middle()
+                .setRenderContext(context)
+                .setStageScore(stageScore);
 
-        String ret = middle.renderScore(stageScore);
+        String ret = middle.renderContents();
         String expected = "  X  |     ";
 
         assertThat(ret).isEqualTo(expected);
@@ -46,9 +50,11 @@ public class MiddleTest {
                 .getMaker()
                 .setBlockWidth(6)
                 .make(3);
-        Middle middle = Middle.middle(context);
+        Middle middle = Middle.middle()
+                .setRenderContext(context)
+                .setStageScore(stageScore);
 
-        String ret = middle.renderScore(stageScore);
+        String ret = middle.renderContents();
         String expected = "   X  |      ";
 
         assertThat(ret).isEqualTo(expected);
@@ -61,9 +67,11 @@ public class MiddleTest {
                 .getMaker()
                 .setBlockWidth(5)
                 .make(3);
-        Middle middle = Middle.middle(context);
+        Middle middle = Middle.middle()
+                .setRenderContext(context)
+                .setStageScore(stageScore);
 
-        String ret = middle.renderFloor(stageScore);
+        String ret = middle.renderFloor();
         String expected = "_____|_____";
 
         assertThat(ret).isEqualTo(expected);

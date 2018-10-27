@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static BowlingScore.StageScore.stageScore;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,9 +33,12 @@ public class MiddleLineTest {
         );
         RenderContextMaker maker = RenderContext.getMaker();
         maker.setBlockWidth(3);
-        RenderContext context = maker.make(3);
+        List<RenderContext> contextList = Stream.iterate(1, i -> i+1)
+                .limit(10)
+                .map(maker::make)
+                .collect(Collectors.toList());
 
-        String ret = MiddleLine.render(context, scoreList);
+        String ret = MiddleLine.render(contextList, scoreList);
 
         assertThat(ret).isEqualTo(expected);
     }
@@ -49,9 +54,12 @@ public class MiddleLineTest {
         List<StageScore> scoreList = Arrays.asList(stageScore(1, "9", "/"));
         RenderContextMaker maker = RenderContext.getMaker();
         maker.setBlockWidth(3);
-        RenderContext context = maker.make(3);
+        List<RenderContext> contextList = Stream.iterate(0, i -> i+1)
+                .limit(scoreList.size())
+                .map(maker::make)
+                .collect(Collectors.toList());
 
-        String ret = MiddleLine.render(context, scoreList);
+        String ret = MiddleLine.render(contextList, scoreList);
 
         assertThat(ret).isEqualTo(expected);
     }
@@ -70,10 +78,13 @@ public class MiddleLineTest {
         );
         RenderContextMaker maker = RenderContext.getMaker();
         maker.setBlockWidth(3);
-        RenderContext context = maker.make(3);
+        List<RenderContext> contextList = Stream.iterate(0, i -> i+1)
+                .limit(scoreList.size())
+                .map(maker::make)
+                .collect(Collectors.toList());
 
 
-        String ret = MiddleLine.render(context, scoreList);
+        String ret = MiddleLine.render(contextList, scoreList);
 
         assertThat(ret).isEqualTo(expected);
     }

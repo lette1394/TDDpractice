@@ -1,9 +1,9 @@
 package BowlingScore.Render;
 
 interface Renderable {
-    String renderCeiling(RenderContext context);
+    String renderCeiling();
 
-    String renderContents(RenderContext context);
+    String renderContents();
 
-    String renderFloor(RenderContext context);
+    String renderFloor();
 }

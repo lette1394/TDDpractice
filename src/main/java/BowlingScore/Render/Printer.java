@@ -4,6 +4,8 @@ import BowlingScore.StageScore;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static BowlingScore.StageScore.stageScore;
 
@@ -34,7 +36,13 @@ public class Printer {
                 stageScore(10, "a", "b", "c")
                 );
 
-        String line = MiddleLine.render(context, scoreList);
+        RenderContext.RenderContextMaker maker = RenderContext.getMaker();
+        List<RenderContext> contextList = Stream.iterate(1, i -> i+1)
+                .limit(10)
+                .map(maker::make)
+                .collect(Collectors.toList());
+
+        String line = MiddleLine.render(contextList, scoreList);
         print(line);
     }
 

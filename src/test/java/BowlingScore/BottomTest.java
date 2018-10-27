@@ -23,7 +23,7 @@ public class BottomTest {
         String expected = "   1   ";
         RenderContext context = context().setBlockWidth(3);
 
-        String ret = Bottom.renderBottom(context);
+        String ret = Bottom.renderMiddle(context);
 
         assertThat(ret).isEqualTo(expected);
     }

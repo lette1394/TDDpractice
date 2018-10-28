@@ -13,7 +13,7 @@ public class BottomTest {
         maker.setBlockWidth(3);
         RenderContext context = maker.make(3);
 
-        String ret = Bottom.create().renderCeiling();
+        String ret = Bottom.bottom(context).renderCeiling();
 
         assertThat(ret).isEqualTo(expected);
     }
@@ -25,7 +25,7 @@ public class BottomTest {
         maker.setBlockWidth(3);
         RenderContext context = maker.make(3);
 
-        String ret = Bottom.create().renderContents();
+        String ret = Bottom.bottom(context).renderContents();
 
         assertThat(ret).isEqualTo(expected);
     }
@@ -37,7 +37,7 @@ public class BottomTest {
         maker.setBlockWidth(3);
         RenderContext context = maker.make(3);
 
-        String ret = Bottom.create().renderFloor();
+        String ret = Bottom.bottom(context).renderFloor();
 
         assertThat(ret).isEqualTo(expected);
     }

@@ -1,10 +1,17 @@
 package BowlingScore.Render;
 
 class Bottom implements Renderable {
-    private Bottom() {}
+    private RenderContext context;
 
-    static Bottom create() {
-        return new Bottom();
+    private Bottom(){}
+
+    static Bottom bottom(RenderContext context) {
+        return new Bottom().setRenderContext(context);
+    }
+
+    private Bottom setRenderContext(RenderContext context) {
+        this.context = context;
+        return this;
     }
 
     @Override

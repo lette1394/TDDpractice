@@ -10,14 +10,12 @@ import java.io.PrintStream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MainTest {
-
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     private void simulate(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         System.setOut(new PrintStream(out));
     }
-
 
     @Test
     void show_whole_score() throws Exception {

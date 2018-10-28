@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BottomTest {
+class BottomTest {
     @Test
     void render_ceiling() throws Exception {
         String expected = "       ";

@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 import static BowlingScore.StageScore.stageScore;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MiddleLineTest {
+class MiddleLineTest {
     @Test
     void render_middle_line() throws Exception {
         String expected =

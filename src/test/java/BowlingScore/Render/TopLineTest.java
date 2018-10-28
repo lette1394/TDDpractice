@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class TopLineTest {
-
     @Test
     void render_1_stages() throws Exception {
         RenderContext context = RenderContext

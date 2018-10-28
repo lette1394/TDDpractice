@@ -34,10 +34,10 @@ public class Printer {
                 stageScore(8, "9", "8"),
                 stageScore(9, "9", "8"),
                 stageScore(10, "a", "b", "c")
-                );
+        );
 
         RenderContext.RenderContextMaker maker = RenderContext.getMaker();
-        List<RenderContext> contextList = Stream.iterate(1, i -> i+1)
+        List<RenderContext> contextList = Stream.iterate(1, i -> i + 1)
                 .limit(10)
                 .map(maker::make)
                 .collect(Collectors.toList());
@@ -48,54 +48,35 @@ public class Printer {
 
     private static void printBottom(RenderContext context) {
 
-
         System.out.print("|");
-        System.out.print(String.format("%8s", "|"));
-        System.out.print(String.format("%8s", "|"));
-        System.out.print(String.format("%8s", "|"));
-        System.out.print(String.format("%8s", "|"));
-        System.out.print(String.format("%8s", "|"));
-        System.out.print(String.format("%8s", "|"));
-        System.out.print(String.format("%8s", "|"));
-        System.out.print(String.format("%8s", "|"));
-        System.out.print(String.format("%8s", "|"));
+        for (int i = 0; i < 9; i++) {
+            System.out.print(String.format("%8s", "|"));
+
+        }
         System.out.print(String.format("%12s", "|"));
+
+
         System.out.println();
 
+
         System.out.print("|");
-        System.out.print(String.format("%3s%s%3s", "", "1", ""));
-        System.out.print("|");
-        System.out.print(String.format("%3s%s%3s", "", "2", ""));
-        System.out.print("|");
-        System.out.print(String.format("%3s%s%3s", "", "3", ""));
-        System.out.print("|");
-        System.out.print(String.format("%3s%s%3s", "", "4", ""));
-        System.out.print("|");
-        System.out.print(String.format("%3s%s%3s", "", "5", ""));
-        System.out.print("|");
-        System.out.print(String.format("%3s%s%3s", "", "6", ""));
-        System.out.print("|");
-        System.out.print(String.format("%3s%s%3s", "", "7", ""));
-        System.out.print("|");
-        System.out.print(String.format("%3s%s%3s", "", "8", ""));
-        System.out.print("|");
-        System.out.print(String.format("%3s%s%3s", "", "9", ""));
-        System.out.print("|");
+        for (int i = 0; i < 9; i++) {
+            System.out.print(String.format("%3s%s%3s", "", i + 1, ""));
+            System.out.print("|");
+        }
         System.out.print(String.format("%4s%s%5s", "", "10", ""));
         System.out.print("|");
+
+
         System.out.println();
 
+
         System.out.print("|");
-        System.out.print(String.format("%8s", "_______|"));
-        System.out.print(String.format("%8s", "_______|"));
-        System.out.print(String.format("%8s", "_______|"));
-        System.out.print(String.format("%8s", "_______|"));
-        System.out.print(String.format("%8s", "_______|"));
-        System.out.print(String.format("%8s", "_______|"));
-        System.out.print(String.format("%8s", "_______|"));
-        System.out.print(String.format("%8s", "_______|"));
-        System.out.print(String.format("%8s", "_______|"));
+        for (int i = 0; i < 9; i++) {
+            System.out.print(String.format("%8s", "_______|"));
+        }
         System.out.print(String.format("%9s", "___________|"));
+
         System.out.println();
     }
 

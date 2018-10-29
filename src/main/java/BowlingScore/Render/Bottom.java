@@ -3,7 +3,8 @@ package BowlingScore.Render;
 class Bottom implements Renderable {
     private RenderContext context;
 
-    private Bottom(){}
+    private Bottom() {
+    }
 
     static Bottom bottom() {
         return new Bottom();
@@ -20,15 +21,24 @@ class Bottom implements Renderable {
             return "       ";
         }
 
+        return "           ";
     }
 
     @Override
     public String renderContents() {
-        return String.format("%3s%s%3s", "", context.getStage(), "");
+        if (context.getStage() < 10) {
+            return String.format("%3s%s%3s", "", context.getStage(), "");
+        }
+
+        return String.format("%4s%s%5s", "", context.getStage(), "");
     }
 
     @Override
     public String renderFloor() {
-        return "_______";
+        if (context.getStage() < 10) {
+            return "_______";
+        }
+
+        return "___________";
     }
 }

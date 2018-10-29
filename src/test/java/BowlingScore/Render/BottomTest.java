@@ -13,31 +13,31 @@ class BottomTest {
         maker.setBlockWidth(3);
         RenderContext context = maker.make(3);
 
-        String ret = Bottom.bottom(context).renderCeiling();
+        String ret = Bottom.bottom().setRenderContext(context).renderCeiling();
 
         assertThat(ret).isEqualTo(expected);
     }
 
     @Test
     void render_middle() throws Exception {
-        String expected = "   1   ";
+        String expected = "   3   ";
         RenderContextMaker maker = RenderContext.getMaker();
         maker.setBlockWidth(3);
         RenderContext context = maker.make(3);
 
-        String ret = Bottom.bottom(context).renderContents();
+        String ret = Bottom.bottom().setRenderContext(context).renderContents();
 
         assertThat(ret).isEqualTo(expected);
     }
 
     @Test
     void render_bottom() throws Exception {
-        String expected = "       ";
+        String expected = "_______";
         RenderContextMaker maker = RenderContext.getMaker();
         maker.setBlockWidth(3);
         RenderContext context = maker.make(3);
 
-        String ret = Bottom.bottom(context).renderFloor();
+        String ret = Bottom.bottom().setRenderContext(context).renderFloor();
 
         assertThat(ret).isEqualTo(expected);
     }

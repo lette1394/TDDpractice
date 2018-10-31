@@ -69,6 +69,13 @@ public class RenderContext {
         return new RenderContextMaker();
     }
 
+    String renderBottom() {
+        RenderContext context = RenderContext.getMaker().make(3);
+        Bottom bottom = Bottom.bottom().setRenderContext(context);
+
+        return bottom.renderCeiling() + bottom.renderContents() + bottom.renderFloor();
+    }
+
     Integer getStartNumber() {
         return startNumber;
     }

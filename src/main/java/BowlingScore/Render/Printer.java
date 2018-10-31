@@ -18,7 +18,6 @@ public class Printer {
 
     private static void printTop(RenderContext context) {
         String line = TopLine.render(context);
-
         print(line);
     }
 

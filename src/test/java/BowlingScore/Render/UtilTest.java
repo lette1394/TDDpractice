@@ -1,6 +1,5 @@
 package BowlingScore.Render;
 
-import BowlingScore.Render.Util;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -51,5 +50,42 @@ public class UtilTest {
         String actual = Util.insertStringTo("_", "k");
 
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    void mergeStage_two() throws Exception {
+        String left =
+                        "_______\n" +
+                        "___1___\n" +
+                        "   |   \n" +
+                        " 9 | / \n" +
+                        "___|___\n" +
+                        "       \n" +
+                        "   1   \n" +
+                        "_______";
+
+        String right =
+                        "_______\n" +
+                        "___1___\n" +
+                        "   |   \n" +
+                        " 9 | / \n" +
+                        "___|___\n" +
+                        "       \n" +
+                        "   1   \n" +
+                        "_______";
+
+        String expected =
+                " _______________\n" +
+                "|___1___|___2___|\n" +
+                "|   |   |   |   |\n" +
+                "| 9 | / | X |   |\n" +
+                "|___|___|___|___|\n" +
+                "|       |       |\n" +
+                "|   1   |   2   |\n" +
+                "|_______|_______|\n";
+
+        String ret = Util.mergeStage(left, right);
+
+        assertThat(ret).isEqualTo(expected);
     }
 }

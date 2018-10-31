@@ -69,11 +69,25 @@ public class RenderContext {
         return new RenderContextMaker();
     }
 
-    String renderBottom() {
-        RenderContext context = RenderContext.getMaker().make(3);
+    String renderBottomCeiling() {
+        RenderContext context = RenderContext.getMaker().make(stage);
         Bottom bottom = Bottom.bottom().setRenderContext(context);
 
-        return bottom.renderCeiling() + bottom.renderContents() + bottom.renderFloor();
+        return bottom.renderCeiling();
+    }
+
+    String renderBottomContents() {
+        RenderContext context = RenderContext.getMaker().make(stage);
+        Bottom bottom = Bottom.bottom().setRenderContext(context);
+
+        return bottom.renderContents();
+    }
+
+    String renderBottomFloor() {
+        RenderContext context = RenderContext.getMaker().make(stage);
+        Bottom bottom = Bottom.bottom().setRenderContext(context);
+
+        return bottom.renderFloor();
     }
 
     Integer getStartNumber() {

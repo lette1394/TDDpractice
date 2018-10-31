@@ -47,37 +47,14 @@ public class Printer {
     }
 
     private static void printBottom(RenderContext context) {
+        RenderContext.RenderContextMaker maker = RenderContext.getMaker();
+        List<RenderContext> contextList = Stream.iterate(1, i -> i + 1)
+                .limit(10)
+                .map(maker::make)
+                .collect(Collectors.toList());
 
-        System.out.print("|");
-        for (int i = 0; i < 9; i++) {
-            System.out.print(String.format("%8s", "|"));
-
-        }
-        System.out.print(String.format("%12s", "|"));
-
-
-        System.out.println();
-
-
-        System.out.print("|");
-        for (int i = 0; i < 9; i++) {
-            System.out.print(String.format("%3s%s%3s", "", i + 1, ""));
-            System.out.print("|");
-        }
-        System.out.print(String.format("%4s%s%5s", "", "10", ""));
-        System.out.print("|");
-
-
-        System.out.println();
-
-
-        System.out.print("|");
-        for (int i = 0; i < 9; i++) {
-            System.out.print(String.format("%8s", "_______|"));
-        }
-        System.out.print(String.format("%9s", "___________|"));
-
-        System.out.println();
+        String line = BottomLine.render(contextList);
+        System.out.println(line);
     }
 
     private static void print(String str) {

@@ -1,28 +1,23 @@
 package BowlingScore.Render;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class BottomLine {
     public static String render(List<RenderContext> contextList) {
-        String top = contextList.stream()
-                .map(RenderContext::renderBottomCeiling)
-                .collect(Collectors.joining("|", "|", "|"));
+        List<Function<RenderContext, String>> mapperList = Arrays.asList(
+                RenderContext::renderBottomCeiling,
+                RenderContext::renderBottomContents,
+                RenderContext::renderBottomFloor);
 
-        String mid = contextList.stream()
-                .map(RenderContext::renderBottomContents)
-                .collect(Collectors.joining("|", "|", "|"));
-
-        String bot = contextList.stream()
-                .map(RenderContext::renderBottomFloor)
-                .collect(Collectors.joining("|", "|", "|"));
-
-
-        return String.join("\n", top, mid, bot);
+        return mapperList.stream()
+                .map(mapper -> renderOneLine(contextList, mapper))
+                .collect(Collectors.joining("\n"));
     }
 
-    private static String _render(List<RenderContext> contextList, Function<RenderContext, String> mapper) {
+    private static String renderOneLine(List<RenderContext> contextList, Function<RenderContext, String> mapper) {
         return contextList.stream()
                 .map(mapper)
                 .collect(Collectors.joining("|", "|", "|"));

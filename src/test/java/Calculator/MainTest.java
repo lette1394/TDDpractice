@@ -1,5 +1,8 @@
 package Calculator;
 
+// 1:2:3 => 6
+// 5:1:2 => 8
+
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -17,22 +20,22 @@ class MainTest {
     }
 
     @Test
-    void handles_add_1_2_3() throws Exception {
+    void addOne() {
         // arrange
-        String input = "1:2:3";
-        String expected = "6";
+        String input = "1";
+        String expected = "1";
         simulate(input);
 
-        // act
+        // run
         Main.main(null);
 
-        // assert
+        // assertion
         assertEquals(expected, out.toString());
     }
 
     @Test
-    void handles_add_0_1_2() throws Exception {
-        String input = "0:1:2";
+    void addTwo() {
+        String input = "1+2";
         String expected = "3";
         simulate(input);
 
@@ -42,9 +45,9 @@ class MainTest {
     }
 
     @Test
-    void handles_add_567() throws Exception {
-        String input = "5:6:7";
-        String expected = "18";
+    void addThree() {
+        String input = "1+2+3";
+        String expected = "6";
         simulate(input);
 
         Main.main(null);
@@ -53,13 +56,37 @@ class MainTest {
     }
 
     @Test
-    void handles_add_0_0_0_0() throws Exception {
-        String input = "0:0:0:0";
-        String expected = "0";
+    void addFour() {
+        String input = "1+2+3+4";
+        String expected = "10";
         simulate(input);
 
         Main.main(null);
 
         assertEquals(expected, out.toString());
     }
+
+    @Test
+    void addFour2() {
+        String input = "2+7+10+555";
+        String expected = "574";
+        simulate(input);
+
+        Main.main(null);
+
+        assertEquals(expected, out.toString());
+    }
+
+    @Test
+    void handle_blank_between_numbers() {
+        String input = "2 + 7 +10+ 555";
+        String expected = "574";
+        simulate(input);
+
+        Main.main(null);
+
+        assertEquals(expected, out.toString());
+    }
+
+
 }
